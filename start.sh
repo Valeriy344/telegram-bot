@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Запускаем бот в фоне
+# Запускаем бота в фоне
 java -jar /app/bot.jar &
 
-# Заглушка: простой HTTP-сервер на 8080
+# HTTP-заглушка, чтобы Render видел открытый порт
 while true; do echo -e "HTTP/1.1 200 OK\r\n\r\nBot is running" | nc -l -p 8080; done
