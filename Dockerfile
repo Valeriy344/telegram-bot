@@ -5,7 +5,7 @@ FROM openjdk:23-jdk-slim
 WORKDIR /app
 
 # Копируем собранный jar в контейнер
-COPY target/bot-1.0-SNAPSHOT.jar /app/bot.jar
+COPY target/bot-1.0-SNAPSHOT-jar-with-dependencies.jar /app/bot.jar
 
 # Запускаем jar
 CMD ["java", "-jar", "/app/bot.jar"]

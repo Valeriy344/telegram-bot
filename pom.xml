@@ -21,15 +21,15 @@
             <version>42.7.3</version>
         </dependency>
         <dependency>
-        <groupId>org.telegram</groupId>
-        <artifactId>telegrambots</artifactId>
-        <version>6.0.1</version>
-    </dependency>
-
+            <groupId>org.telegram</groupId>
+            <artifactId>telegrambots</artifactId>
+            <version>6.0.1</version>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <!-- Плагин для обычного JAR -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -37,12 +37,13 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.example.App</mainClass>
+                            <mainClass>org.example.App</mainClass> <!-- замени, если главный класс другой -->
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
 
+            <!-- Плагин для FAT JAR (все зависимости внутри) -->
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.3.0</version>
@@ -52,30 +53,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>org.example.App</mainClass> <!-- замени на свой главный класс -->
-                        </manifest>
-                    </archive>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.3.0</version>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <archive>
-                        <manifest>
-                            <mainClass>org.example.App</mainClass> <!-- замени на свой главный класс -->
+                            <mainClass>org.example.App</mainClass> <!-- замени, если другой главный класс -->
                         </manifest>
                     </archive>
                 </configuration>
